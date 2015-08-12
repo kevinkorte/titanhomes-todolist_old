@@ -11,7 +11,7 @@ return [
     'db' => [
         'driver' => 'mysql',
         'host' => getenv('IP'),
-        'name' => 'c9',
+        'name' => 'todo',
         'username' => getenv('C9_USER'),
         'password' => '',
         'charset' => 'utf8',

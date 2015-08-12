@@ -2,6 +2,7 @@
 
 use Slim\Slim;
 use Noodlehaus\Config;
+use Titanhomes\User\User;
 
 session_cache_limiter(false);
 session_start();
@@ -25,4 +26,11 @@ $app = new Slim([
 
 $app->configureMode($app->config('mode'), function() use ($app) {
    $app->config = Config::load(INC_ROOT . "/app/config/{$app->mode}.php"); 
+});
+
+require 'database.php';
+
+//Adds user class to Slim's container
+$app->container->set('user', function() {
+    return new User;
 });
